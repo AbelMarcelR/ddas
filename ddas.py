@@ -28,17 +28,6 @@ def main():
 
 def plot_weather_condition():
     plt.figure(figsize=(9, 5))
-    correlation_matrix = day_df.corr()
-    correlation_matrix['cnt'].plot(kind='bar')
-    plt.title("Correlation with count ")
-    plt.xlabel("Features")
-    plt.ylabel("Correlation")
-    plt.xticks(rotation=45)
-    plt.show()
-
-
-def plot_working_holiday_weekday():
-    plt.figure(figsize=(9, 5))
     sns.lineplot(
         x='weathersit',
         y='cnt',
@@ -50,13 +39,25 @@ def plot_working_holiday_weekday():
     plt.show()
 
 
-def plot_monthly_counts():
+def plot_working_holiday_weekday():
     pivot_table = day_df.pivot_table(index='weekday', columns='workingday', values='cnt', aggfunc='sum')
     plt.figure(figsize=(10, 6))
     sns.heatmap(pivot_table, cmap='coolwarm', annot=True, fmt=".0f")
     plt.title('Jumlah Pengguna Sepeda berdasarkan Hari dalam Seminggu dan Hari Kerja')
     plt.xlabel('Hari Kerja')
     plt.ylabel('Hari dalam Seminggu')
+    plt.show()
+
+
+def plot_monthly_counts():
+    plt.figure(figsize=(12, 8))
+    sns.barplot(data=day_df, x="mnth", y="cnt", hue="yr", palette="rocket")
+    plt.title("Jumlah sepeda yang disewakan berdasarkan Bulan dan Tahun")
+    plt.xlabel("Bulan")
+    plt.ylabel("Jumlah sepeda yang disewakan")
+    plt.legend(title="Tahun", loc="upper right")
+    plt.xticks(rotation=45)
+    plt.tight_layout()
     plt.show()
 
 
