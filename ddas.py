@@ -6,6 +6,19 @@ import streamlit as st
 day_df = pd.read_csv("day.csv")
 day_df['mnth'] = day_df['mnth'].map({1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dec'})
 
+day_df['month'] = day_df['month'].map({
+    1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun',7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dec'
+})
+day_df['season'] = day_df['season'].map({1: 'Spring', 2: 'Summer', 3: 'Fall', 4: 'Winter'
+})
+day_df['weekday'] = day_df['weekday'].map({0: 'Sun', 1: 'Mon', 2: 'Tue', 3: 'Wed', 4: 'Thu', 5: 'Fri', 6: 'Sat'
+})
+day_df['weathersit'] = day_df['weathersit'].map({
+    1: 'Clear/Partly Cloudy',
+    2: 'Misty/Cloudy',
+    3: 'Light Snow/Rain',
+    4: 'Severe Weather'
+})
 def main():
     st.title("Dashboard Analisis Pengguna Sepeda")
 
