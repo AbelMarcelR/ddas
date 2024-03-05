@@ -37,6 +37,7 @@ def plot_weather_condition():
     plt.xlabel('Kondisi Cuaca')
     plt.ylabel('Pengguna Sepeda')
     plt.show()
+    st.pyplot(plt.gcf())  
 
 
 def plot_working_holiday_weekday():
@@ -47,6 +48,7 @@ def plot_working_holiday_weekday():
     plt.xlabel('Hari Kerja')
     plt.ylabel('Hari dalam Seminggu')
     plt.show()
+    st.pyplot(plt.gcf())  
 
 
 def plot_monthly_counts():
@@ -59,6 +61,7 @@ def plot_monthly_counts():
     plt.xticks(rotation=45)
     plt.tight_layout()
     plt.show()
+    st.pyplot(plt.gcf())  
 
 
 if __name__ == "__main__":
